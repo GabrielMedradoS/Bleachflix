@@ -1,0 +1,206 @@
+/* Declarando variaveis no CSS */
+:root {
+    --vermelho:#E50914;
+    --preta:#141414; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--preta);
+    font-family: 'Times New Roman', times;
+    color: white;
+    
+
+    
+/*  esconde a barra de rolagem do navegador, porem tira a responsividade
+    overflow: hidden; */
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    margin-left: 5px;
+    color: #E50914;
+    font-family: 'arial black', times;
+    font-size: 40px;
+}
+
+/*Links do Nav*/
+header nav a {
+    text-decoration: none;
+    color: #AAA;
+    margin-right: 10px;
+}
+
+/* a:hover Efeito ao passar o mouse por cima*/
+header nav a:hover {
+    color: #fff;
+}
+
+/*Filme principal*/
+.filme-principal {
+    font-size: 16px;
+    /* linear-gradient efeito para uma transparencia entre o texto e a img
+    gradient sempre pede mais de uma cor*/
+    background:linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%), url(assets/bleach-wallpaper-hitsugaya-toushiro-8.jpg);
+    height: 380px;
+    background-size: 580px;/* cover, 800, 550 */
+    background-position: center;
+    
+    /*Justify content segue a msm linha que o flex direction*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.filme-principal .titulo {
+    font-size: 40px;
+    margin-top: 5%;
+}
+
+.filme-principal .descricao {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.botao {
+    padding: 15px 30px;
+    margin-right: 15px;
+    font-size: 12px;
+    /*Alinhando itens */
+    display:inline-flex;
+    align-items: center;
+   
+    /*rgba(vermelho, verde, azul, camada alpha)*/
+    background-color: rgba(0,0,0,.50);
+    color: white;
+    border: none;
+    border-radius: 3%;
+
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.botao:hover {
+    background-color: white;
+    color: black;
+}
+
+.botao i {
+    margin-right: 8px;   
+}
+
+.filme-principal .container {
+    margin-left: 20px;
+    width: 80%;
+}
+
+#carrossel {
+    width: 100%
+}
+
+ #items {
+    display: flex;
+    overflow-x: auto; 
+    
+ /* funçao para o scroll do mouse funcionar caso a img nao apareça por completo  */
+    scroll-snap-type: x mandatory;
+    /* com esse comando abilito essa funçao em alguns navegadores e
+    dispositivos */
+    -webkit-overflow-scrolling: touch; 
+    /* para esse comportamento ser suave */
+    scroll-behavior: smooth; 
+}
+
+#carrossel #items .item {
+    margin-right: 5px;
+    /* para aparecer apenas uma img */
+    flex: none;
+    /* posso ajustar quantas imagens eu quero */
+    width:20%;
+    height: 180px;;
+    object-fit: cover;
+
+    scroll-snap-align: start;
+    
+    pointer-events: none;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Configurando a barra de rolagem usando CSS
+alguns navegadores e dispositivos pode nao funcionar ou ficar
+mal ajustado */
+#items::-webkit-scrollbar {
+    height: 7px;
+}
+
+/* barra de rolagem  */
+#items::-webkit-scrollbar-track {
+    background-color: #1d1d1d;
+}
+
+/* tracker da barra de rolagem */
+#items::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #5b5b5b;    
+}
+
+#items::-webkit-scrollbar-thumb:hover {
+    background-color: #ccc;
+}
+
+@media screen and (max-width:600px) {
+
+
+    header .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .botao {
+        margin-top: 5px;
+        width: 280px;
+    }
+    
+    #items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #carrossel #items .item {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    body {
+    overflow-y: hidden;
+    }
+
+    .descricao {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1450px) {
+    #carrossel #items .item {
+        width: 16.5%;
+        height: 200px;
+    }
+}
