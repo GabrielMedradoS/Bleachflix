@@ -1,5 +1,5 @@
 ## DIO-Bleachflix
-  <img src=".github/Bleachflix.png" alt="Bleachflix" width="100%">
+  <img src=".github/github image.png" alt="Bleachflix" width="100%">
   
 ### 💻 Projeto
 Desafio Digital Innovation One
